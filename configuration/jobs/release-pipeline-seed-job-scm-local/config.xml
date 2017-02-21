@@ -46,15 +46,13 @@
     <javaposse.jobdsl.plugin.ExecuteDslScripts plugin="job-dsl@1.51">
       <scriptText>pipelineJob(&quot;${application_name}-release-pipeline&quot;) {
   definition {
-    cpsScm {
-      scm {
-        scriptPath(readFileFromWorkspace(&apos;Jenkinsfile&apos;)
-        sandbox(false)
-      }
-      environmentVariables {
-        env(&apos;OPENSHIFT_API_TOKEN&apos;,&quot;${openshift_api_token}&quot;)
-        env(&apos;SKIP_TLS&apos;,&apos;true&apos;)
-      }
+    cps {
+      script(readFileFromWorkspace(&apos;Jenkinsfile&apos;))
+      sandbox(false)
+    }
+    environmentVariables {
+      env(&apos;OPENSHIFT_API_TOKEN&apos;,&quot;${openshift_api_token}&quot;)
+      env(&apos;SKIP_TLS&apos;,&apos;true&apos;)
     }
   }
 }</scriptText>

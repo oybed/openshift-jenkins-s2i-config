@@ -38,7 +38,6 @@
   definition {
     cps {
       script(readFileFromWorkspace(&apos;Jenkinsfile&apos;))
-      sandbox(false)
     }
     environmentVariables {
       env(&apos;OPENSHIFT_API_TOKEN&apos;,&quot;${openshift_api_token}&quot;)
